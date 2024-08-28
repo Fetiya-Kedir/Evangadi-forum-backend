@@ -31,7 +31,7 @@ app.use('/api/answers', answerRoutes);
 async function start() {
 	try {
 		const result = await dbConnection.execute("SELECT 'test'");
-		await app.listen(port);
+		await app.listen(port, '0.0.0.0'); // Binding to all network interfaces
 		console.log('database connection established');
 		console.log(`listening on port ${port}`);
 	} catch (error) {
