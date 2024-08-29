@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3005;
 const cors = require('cors');
 
 app.use(cors());
@@ -31,7 +31,7 @@ app.use('/api/answers', answerRoutes);
 async function start() {
 	try {
 		const result = await dbConnection.execute("SELECT 'test'");
-		await app.listen(port, '0.0.0.0'); // Binding to all network interfaces
+		await app.listen(port);
 		console.log('database connection established');
 		console.log(`listening on port ${port}`);
 	} catch (error) {
